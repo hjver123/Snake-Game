@@ -13,7 +13,10 @@ cols = 25
 rows = 20
 
 clock = pygame.time.Clock()
+<<<<<<< HEAD
+=======
 
+<<<<<<< HEAD
 win=Tk()
 win.title("Snake Game")
 win.resizable(500,500)
@@ -22,6 +25,9 @@ label1=Label(win, text="Game Start",width=30,height=5,fg="blue",relief="solid")
 label1.pack()
 
 win.mainloop()
+=======
+>>>>>>> master
+>>>>>>> origin/kim
 
 class cube():
     rows = 20
@@ -101,7 +107,11 @@ class snake():
                 c.move(c.dirnx,c.dirny)
 
         level = int(len(self.body) / 5)
+<<<<<<< HEAD
+        fps = 5 + (2*level) 
+=======
         fps = 6 + (2*level) 
+>>>>>>> master
         clock.tick(fps)
         
         
