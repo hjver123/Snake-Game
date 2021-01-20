@@ -127,6 +127,11 @@ class snake():
             else:
                 c.draw(surface)
 
+    def end_game():
+        print("Score:", len(self.body))
+        sys.exit(0)
+
+
 
 
 def redrawWindow():
@@ -164,7 +169,7 @@ def randomSnack(rows, item):
                continue
         else:
                break
-
+    
     return (x,y)
 
 
@@ -176,6 +181,7 @@ def main():
     snack = cube(randomSnack(rows,s), color=(0,255,0))
     flag = True
     clock = pygame.time.Clock()
+    
     
     while flag:
         pygame.time.delay(50)
@@ -189,13 +195,16 @@ def main():
         if s.body[0].pos == snack.pos:
             s.addCube()
             snack = cube(randomSnack(rows,s), color=(0,255,0))
+
             
         for x in range(len(s.body)):
             if s.body[x].pos in list(map(lambda z:z.pos,s.body[x+1:])):
                 print("Score:", len(s.body))
                 s.reset((10,10))
                 break
-                    
+        if len(s.body) > 40:
+            end_game()
+  
         redrawWindow()
 
 main()
